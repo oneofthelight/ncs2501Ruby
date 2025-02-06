@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class RubyController : MonoBehaviour
 {
+    private Rigidbody2D rb2d;
     public float moveSpeed = 4.0f;
     void Start()
     {
-   
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -22,6 +23,6 @@ public class RubyController : MonoBehaviour
         Vector2 position = transform.position;
         position.x += moveSpeed * horizontal * Time.deltaTime;
         position.y += moveSpeed * vertical * Time.deltaTime;
-        transform.position = position;
+        rb2d.MovePosition(position);
     }
 }
