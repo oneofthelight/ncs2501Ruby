@@ -9,11 +9,15 @@ public class EnemyController : MonoBehaviour
     public float changeTime = 3.0f;
     private float timer;
     private int direction = 1;
-    Rigidbody2D rigidbody2D;
+    private Vector2 position;
+    private Rigidbody2D rigidbody2D;
+    private Animator animator;
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         timer = changeTime;
+        position = rigidbody2D.position;
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -23,14 +27,18 @@ public class EnemyController : MonoBehaviour
             direction = -direction;
             timer = changeTime;
         }
-        Vector2 position = rigidbody2D.position;
+        
         if (vertical)
         {
-            position.y += moveSpeed * direction * Time.deltaTime   ;
+            position.y += moveSpeed * direction * Time.deltaTime;
+            animator.SetFloat("MoveX", 0);
+            animator.SetFloat("MoveY", direction);
         }
         else
         {
-            position.x += moveSpeed * direction * Time.deltaTime   ;
+            animator.SetFloat("MoveX", direction);
+            animator.SetFloat("MoveY", 0);
+            position.x += moveSpeed * direction * Time.deltaTime;
         }
         rigidbody2D.MovePosition(position);
     }
