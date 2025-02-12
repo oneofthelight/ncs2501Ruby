@@ -694,6 +694,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2031448335}
     m_Modifications:
     - target: {fileID: 7632851180373066762, guid: 50f6b2c8648c55f47947a183c645858e, type: 3}
+      propertyPath: needFix
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632851180373066762, guid: 50f6b2c8648c55f47947a183c645858e, type: 3}
       propertyPath: vertical
       value: 0
       objectReference: {fileID: 0}
@@ -9176,6 +9180,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2031448335}
     m_Modifications:
     - target: {fileID: 7632851180373066762, guid: 50f6b2c8648c55f47947a183c645858e, type: 3}
+      propertyPath: needFix
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632851180373066762, guid: 50f6b2c8648c55f47947a183c645858e, type: 3}
       propertyPath: vertical
       value: 1
       objectReference: {fileID: 0}
@@ -9617,8 +9625,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4111698072248055998, guid: 4f03c4f4cb91930449f23ec6bb34644d, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4111698072248055998, guid: 4f03c4f4cb91930449f23ec6bb34644d, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 5252391284016056449, guid: 566ef19405537fd4b9a6027c1a10e506, type: 3}
     - target: {fileID: 4111698072248055999, guid: 4f03c4f4cb91930449f23ec6bb34644d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -9666,6 +9678,10 @@ PrefabInstance:
     - target: {fileID: 4111698072248056001, guid: 4f03c4f4cb91930449f23ec6bb34644d, type: 3}
       propertyPath: m_Name
       value: Ruby
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111698072248056001, guid: 4f03c4f4cb91930449f23ec6bb34644d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f03c4f4cb91930449f23ec6bb34644d, type: 3}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -7,20 +8,28 @@ public class EnemyController : MonoBehaviour
     public float moveSpeed = 4.0f;
     public bool vertical;
     public float changeTime = 3.0f;
+    public int needFix = 3;
     private float timer;
     private int direction = 1;
     private Vector2 position;
     private Rigidbody2D rigidbody2D;
     private Animator animator;
+    private bool broken;
+    private int fixedCount;
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         timer = changeTime;
         position = rigidbody2D.position;
         animator = GetComponent<Animator>();
+        broken = true;
     }
     void Update()
     {
+        if(!broken)
+        {
+            return;
+        }
         timer -= Time.deltaTime;
         if(timer <0)
         {
@@ -49,6 +58,19 @@ public class EnemyController : MonoBehaviour
         if (player != null)
         {
             player.ChangeHealth(-1);
+        }
+    }
+    public void Fix()
+    {
+        if(fixedCount >= needFix)
+        {
+            broken = false;
+            rigidbody2D.simulated = false;
+            animator.SetTrigger("Fixed");
+        }
+        else 
+        {
+            fixedCount++;
         }
     }
 }
