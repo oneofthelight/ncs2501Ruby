@@ -10,6 +10,7 @@ public class RubyController : MonoBehaviour
     public int health { get { return currentHealth;}}
     public float timeInvicible = 2.0f;
     public GameObject projectilePrefab;
+    public ParticleSystem collEffectPrefab;
     private bool isInvicible;
     private float inInvincibleTimer;
     private int currentHealth;
@@ -71,10 +72,12 @@ public class RubyController : MonoBehaviour
                 return;
             isInvicible = true;
             inInvincibleTimer = timeInvicible;
+            Instantiate(collEffectPrefab, rb2d.position + Vector2.up * 0.2f, Quaternion.identity);
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         //Debug.Log(currentHealth + "/" + maxHealth);
         Debug.Log($"{currentHealth}/{maxHealth}");
+        UIHealhtBar.instance.SetValue(currentHealth/(float)maxHealth);
     }
     private void Launch()
     {

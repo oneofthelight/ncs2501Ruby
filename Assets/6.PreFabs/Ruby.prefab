@@ -103,6 +103,8 @@ MonoBehaviour:
   moveSpeed: 50
   maxHealth: 5
   timeInvicible: 2
+  projectilePrefab: {fileID: 5252391284016056449, guid: 566ef19405537fd4b9a6027c1a10e506, type: 3}
+  collEffectPrefab: {fileID: 2651746997424572942, guid: f28d40226072828499a1231133fabd33, type: 3}
 --- !u!50 &558662082
 Rigidbody2D:
   serializedVersion: 4
