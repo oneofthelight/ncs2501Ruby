@@ -152,6 +152,7 @@ MonoBehaviour:
   vertical: 0
   changeTime: 3
   needFix: 3
+  dialogBox: {fileID: 4255256705280273054, guid: 4ff901d1ada0db64dafafc3d91b189f0, type: 3}
 --- !u!95 &1686182831094211680
 Animator:
   serializedVersion: 5

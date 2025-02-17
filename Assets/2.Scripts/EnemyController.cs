@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public bool vertical;
     public float changeTime = 3.0f;
     public int needFix = 3;
+    public GameObject dialogBox;
     private float timer;
     private int direction = 1;
     private Vector2 position;
@@ -67,6 +68,8 @@ public class EnemyController : MonoBehaviour
             broken = false;
             rigidbody2D.simulated = false;
             animator.SetTrigger("Fixed");
+
+            Instantiate(dialogBox, rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
         }
         else 
         {
