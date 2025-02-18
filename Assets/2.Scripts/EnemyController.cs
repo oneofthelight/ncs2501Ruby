@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public float changeTime = 3.0f;
     public int needFix = 3;
     public GameObject dialogBox;
+    public AudioClip fixedClip;
     private float timer;
     private int direction = 1;
     private Vector2 position;
@@ -63,17 +64,15 @@ public class EnemyController : MonoBehaviour
     }
     public void Fix()
     {
+        fixedCount++;
         if(fixedCount >= needFix)
         {
             broken = false;
             rigidbody2D.simulated = false;
             animator.SetTrigger("Fixed");
-
-            Instantiate(dialogBox, rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
-        }
-        else 
-        {
-            fixedCount++;
+            // 루비에게 fixed 알리기
+            RubyController ruby = GameObject.FindWithTag("RUBY").GetComponent<RubyController>();
+            ruby.PlaySound(fixedClip);
         }
     }
 }
