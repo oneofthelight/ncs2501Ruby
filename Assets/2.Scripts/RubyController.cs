@@ -91,7 +91,7 @@ public class RubyController : MonoBehaviour
                 return;
             isInvicible = true;
             inInvincibleTimer = timeInvicible;
-            Instantiate(collEffectPrefab, rb2d.position + Vector2.up * 0.2f, Quaternion.identity);
+            //Instantiate(collEffectPrefab, rb2d.position + Vector2.up * 0.2f, Quaternion.identity);
             PlaySound(hitClip);
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);

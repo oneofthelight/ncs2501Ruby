@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6564635999866756280}
   m_Layer: 8
   m_Name: JambiIdle1
-  m_TagString: Untagged
+  m_TagString: JAMBI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayTime: 4
   dialogBox: {fileID: 4255256705280273054, guid: 4ff901d1ada0db64dafafc3d91b189f0, type: 3}
+  questText: {fileID: 0}
+  shadowText: {fileID: 0}
 --- !u!1001 &2680136066217041703
 PrefabInstance:
   m_ObjectHideFlags: 0

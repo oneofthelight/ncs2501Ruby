@@ -2028,6 +2028,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3286540413996752400, guid: 72e23ed269d3bff4e833a3575c8d54c1, type: 3}
   m_PrefabInstance: {fileID: 1187738484}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1192245746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8166006053257912386, guid: a6898535f620e7c47bad308de5f47518, type: 3}
+  m_PrefabInstance: {fileID: 1315080543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1246712303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2285,6 +2296,14 @@ PrefabInstance:
       propertyPath: dialogBox
       value: 
       objectReference: {fileID: 303059964}
+    - target: {fileID: 6564635999866756280, guid: a6898535f620e7c47bad308de5f47518, type: 3}
+      propertyPath: questText
+      value: 
+      objectReference: {fileID: 170154809}
+    - target: {fileID: 6564635999866756280, guid: a6898535f620e7c47bad308de5f47518, type: 3}
+      propertyPath: shadowText
+      value: 
+      objectReference: {fileID: 1192245746}
     - target: {fileID: 6564635999866756280, guid: a6898535f620e7c47bad308de5f47518, type: 3}
       propertyPath: displayTime
       value: 2
@@ -2733,7 +2752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587058923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6955328, y: -1.307369, z: -10}
+  m_LocalPosition: {x: -4.0436697, y: -1.3183982, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

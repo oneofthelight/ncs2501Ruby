@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -8564621394653066654}
   m_Layer: 0
   m_Name: Bot
-  m_TagString: Untagged
+  m_TagString: ENEMY
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   needFix: 3
   dialogBox: {fileID: 4255256705280273054, guid: 4ff901d1ada0db64dafafc3d91b189f0, type: 3}
   fixedClip: {fileID: 8300000, guid: e7fa1971a86d60945bb64585c0ac14d5, type: 3}
+  completedClip: {fileID: 8300000, guid: f987bfc0b774d3f4e82dc47e91f78584, type: 3}
 --- !u!95 &1686182831094211680
 Animator:
   serializedVersion: 5

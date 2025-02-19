@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -11,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public int needFix = 3;
     public GameObject dialogBox;
     public AudioClip fixedClip;
+    public AudioClip completedClip;
     private float timer;
     private int direction = 1;
     private Vector2 position;
@@ -73,6 +73,12 @@ public class EnemyController : MonoBehaviour
             // 루비에게 fixed 알리기
             RubyController ruby = GameObject.FindWithTag("RUBY").GetComponent<RubyController>();
             ruby.PlaySound(fixedClip);
+            // jambi에게 fixed 알리기
+            NPC jambi = GameObject.FindWithTag("JAMBI").GetComponent<NPC>();
+            if(jambi.NoticeRobotFixed())
+            {
+                ruby.PlaySound(completedClip);
+            }
         }
     }
 }
