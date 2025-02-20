@@ -13,7 +13,7 @@ public class RubyController : MonoBehaviour
     public ParticleSystem collEffectPrefab;
     public AudioClip throwClip;
     public AudioClip hitClip;
-    
+    public GameObject AndroidPanel;
     private bool isInvicible;
     private float inInvincibleTimer;
     private int currentHealth;
@@ -22,25 +22,36 @@ public class RubyController : MonoBehaviour
     private Animator animator;
     private Vector2 lookDirection = new Vector2(1, 0);
     private AudioSource audioSource;
+    private PlayerMove moves;
 
     private void Start()
     {
+#if (UNITY_ANDROID)
+        AndroidPanel.SetActive(true);
+#else
+        AndroidPanel.SetActive(false);
+#endif
         rb2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         position = rb2d.position;
         animator = GetComponent<Animator>();
         audioSource= GetComponent<AudioSource>();
+        moves = GetComponent<PlayerMove>();
     }
 
     private void Update()
     {
+#if (!UNITY_ANDROID)
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         // GetAxisLaw를 사용하면 -1,1값이 넘어온다
         //float vertical = Input.GetAxisRaw("Vertical");
-        //Debug.Log($"H:{horizontal}");
         //Debug.Log($"V:{vertical}");
+        //Debug.Log($"H:{horizontal}");
         Vector2 move = new Vector2(horizontal, vertical);
+#else
+        Vector2 move = moves.MoveInput.normalized;
+#endif
         if(!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
         {
             lookDirection.Set(move.x, move.y);
@@ -70,16 +81,7 @@ public class RubyController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            RaycastHit2D hit = Physics2D.Raycast(rb2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
-            if (hit.collider != null)
-            {
-                //NPC jambi = hit.collider.GetComponent<NPC>();  이 두줄을 아래의 한줄로 변경 가능
-                //if (jambi != null)
-                hit.collider.TryGetComponent<NPC>(out var jambi);
-                {
-                    jambi.DisplayDialog();
-                }
-            }
+            Talk();
         }
     }
     public void ChangeHealth(int amount)
@@ -99,7 +101,7 @@ public class RubyController : MonoBehaviour
         Debug.Log($"{currentHealth}/{maxHealth}");
         UIHealhtBar.instance.SetValue(currentHealth/(float)maxHealth);
     }
-    private void Launch()
+    public void Launch()
     {
         GameObject projectileObject = Instantiate(projectilePrefab, rb2d.position + Vector2.up * 0.5f, Quaternion.identity);
 
@@ -111,5 +113,18 @@ public class RubyController : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+    public void Talk()
+    {
+            RaycastHit2D hit = Physics2D.Raycast(rb2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                //NPC jambi = hit.collider.GetComponent<NPC>();  이 두줄을 아래의 한줄로 변경 가능
+                //if (jambi != null)
+                hit.collider.TryGetComponent<NPC>(out var jambi);
+                {
+                    jambi.DisplayDialog();
+                }
+            }
     }
 }

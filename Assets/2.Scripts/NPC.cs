@@ -51,7 +51,7 @@ public class NPC : MonoBehaviour
         SetDisplayText(isCompleted); // 0이하면 true 아니면 false
         return isCompleted;
     }
-    private void SetDisplayText(bool isCompleted = false)
+    public void SetDisplayText(bool isCompleted = false)
     {
         if(isCompleted)
         {
